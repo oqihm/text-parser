@@ -1,0 +1,31 @@
+/* Basic styles for the navigation bar */
+nav {
+  background-color: #f8f9f9; /* Light background color similar to Stack Overflow */
+  padding: 10px;
+  border-bottom: 1px solid #e1e4e8; /* Light border for a subtle separation */
+  display: flex;
+  justify-content: right;
+  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+}
+
+/* Styles for the navigation links */
+nav a {
+  color: #007bff; /* Stack Overflow blue color */
+  text-decoration: none;
+  padding: 10px 15px;
+  display: inline-block;
+  font-size: 16px;
+}
+
+/* Change link color on hover */
+nav a:hover {
+  background-color: #e1e4e8; /* Light grey background on hover */
+  color: #0056b3; /* Darker blue color on hover */
+  border-radius: 4px; /* Rounded corners for the hover effect */
+}
+
+/* Optional: Make the active link stand out */
+nav a.active {
+  font-weight: bold;
+  color: #0056b3; /* Darker blue for the active link */
+}

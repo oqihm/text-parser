@@ -1,0 +1,8 @@
+<div class="overlay" [class.show]="overlayContent">
+    <button class="close-button" (click)="hideOverlay()">X</button>
+    <div class="overlay-content">
+      {{ overlayContent }}
+    </div>
+    <ng-template #overlayContainer></ng-template>
+  </div>
+  
