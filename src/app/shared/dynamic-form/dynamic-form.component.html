@@ -1,0 +1,37 @@
+<div class="dynamic-form-container">
+  <form class="dynamic-form">
+    <div *ngFor="let field of fields" class="form-group">
+      <label [for]="field.name">{{ field.name }}</label>
+      
+      <!-- Text Input -->
+      <input *ngIf="field.dataType === dataType.Text" 
+             [id]="field.name" 
+             [attr.required]="field.mandatory ? true : null" 
+             type="text" 
+             class="form-control" />
+
+      <!-- Number Input -->
+      <input *ngIf="field.dataType === dataType.Number" 
+             [id]="field.name" 
+             [attr.required]="field.mandatory ? true : null" 
+             type="number" 
+             class="form-control" />
+
+      <!-- Dropdown Input -->
+      <select *ngIf="field.dataType === dataType.List" 
+              [id]="field.name" 
+              [attr.required]="field.mandatory ? true : null" 
+              class="form-control">
+        <option *ngFor="let item of field.list" [value]="item.value">{{ item.name }}</option>
+      </select>
+
+      <!-- Add a horizontal line for better separation -->
+      <hr *ngIf="field !== fields[fields.length - 1]" />
+    </div>
+
+    <!-- <div class="form-actions">
+      <button type="button" (click)="close()" class="btn btn-secondary">Cancel</button>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div> -->
+  </form>
+</div>

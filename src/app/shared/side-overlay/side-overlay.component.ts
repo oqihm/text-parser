@@ -1,25 +1,35 @@
-import { Component, Input, OnInit, ViewChild, ViewContainerRef, ComponentFactoryResolver, ComponentRef } from '@angular/core';
+import { Component, ViewChild, ViewContainerRef, Input, EventEmitter, Output, Type } from '@angular/core';
 
 @Component({
   selector: 'app-side-overlay',
   templateUrl: './side-overlay.component.html',
   styleUrls: ['./side-overlay.component.css']
 })
-export class SideOverlayComponent implements OnInit {
-  @Input() overlayContent: string = '';
-  @ViewChild('overlayContainer', { read: ViewContainerRef }) overlayContainer!: ViewContainerRef;
+export class SideOverlayComponent {
+  @ViewChild('dynamicComponent', { read: ViewContainerRef }) container!: ViewContainerRef;
+  @Input() component!: Type<any>;
+  @Input() componentData: any;
+  @Output() onClose = new EventEmitter<void>();
 
-  constructor(private resolver: ComponentFactoryResolver) {}
+  // ngAfterViewInit(): void {
+  //   if (this.container && this.component) {
+  //     this.container.clear();
+  //     this.container.createComponent(this.component);
+  //   }
+  // }
 
-  ngOnInit(): void {}
-
-  showOverlay(content: string): void {
-    this.overlayContent = content;
-    this.overlayContainer.clear();
+  ngAfterViewInit(): void {
+    if (this.container && this.component) {
+      this.container.clear();
+      const factory = this.container.createComponent(this.component);
+      // Pass data to the dynamically created component
+      if (factory.instance && this.componentData) {
+        Object.assign(factory.instance, this.componentData);
+      }
+    }
   }
 
-  hideOverlay(): void {
-    this.overlayContent = '';
-    this.overlayContainer.clear();
+  close(): void {
+    this.onClose.emit();
   }
 }

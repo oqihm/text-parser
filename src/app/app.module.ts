@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { AboutComponent } from './about/about.component';
 import { OverlayService } from './services/overlay.service';
 import { HttpClientModule } from '@angular/common/http';
+import { SideOverlayComponent } from './shared/side-overlay/side-overlay.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     TextParserComponent,
     ComponentTwoComponent,
     AboutComponent,
+    SideOverlayComponent
   ],
   imports: [
     BrowserModule,

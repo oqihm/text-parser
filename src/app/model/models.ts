@@ -13,6 +13,13 @@ export interface Field {
   }
   
   export interface Configuration {
+    // fields: Field[];
+    // calculations: Calculation[];
+    categories: Category[];
+  }
+
+  export interface Category {
+    type: CategoryType;
     fields: Field[];
     calculations: Calculation[];
   }
@@ -22,13 +29,13 @@ export interface Field {
     value: string;
   }
 
-  enum DataType {
+  export enum DataType {
     Text = "text",
     List = "list",
     Number = "number"
   }
 
-  enum CategoryType {
+  export enum CategoryType {
     Field = "fields",
     Calculation = "calculations"
   }

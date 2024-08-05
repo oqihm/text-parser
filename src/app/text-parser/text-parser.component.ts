@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { OverlayService } from '../services/overlay.service';
 import { MessageService } from '../services/parse.service';
-import { Configuration } from '../model/models';
+import { Configuration, Field } from '../model/models';
+import { DynamicFormComponent } from '../shared/dynamic-form/dynamic-form.component';
 
 @Component({
   selector: 'text-parser',
@@ -20,8 +21,8 @@ export class TextParserComponent {
     this.sendMessage();
   }
 
-  private showOverlay() {
-    this.overlayService.show(this.receivedText);
+  private showOverlay(fields: Field[] = []): void {
+    this.overlayService.open(DynamicFormComponent, { fields: fields } );
   }
 
   private sendMessage() {
@@ -29,6 +30,7 @@ export class TextParserComponent {
       response => {
         console.log('Message sent successfully', response);
         this.output = response;
+        this.showOverlay(this.output.categories[0].fields);
       },
       error => {
         console.error('Error sending message', error);

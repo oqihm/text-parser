@@ -1,22 +1,22 @@
-interface Field {
-  id: number;
-  name: string;
-  dataType: DataType;
-  list?: KeyValuePair[] | null;
-  mandatory: boolean;
-  hidden: boolean;
-}
+// interface Field {
+//   id: number;
+//   name: string;
+//   dataType: DataType;
+//   list?: KeyValuePair[] | null;
+//   mandatory: boolean;
+//   hidden: boolean;
+// }
 
-interface KeyValuePair {
-  key: string;
-  value: string;
-}
+// interface KeyValuePair {
+//   key: string;
+//   value: string;
+// }
 
-enum DataType {
-  Text = "text",
-  List = "list",
-  Number = "number"
-}
+// enum DataType {
+//   Text = "text",
+//   List = "list",
+//   Number = "number"
+// }
 
 // category Fields
 // Field "fieldname1"

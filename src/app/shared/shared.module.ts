@@ -4,10 +4,11 @@ import { NavComponent } from './nav/nav.component';
 import { RouterModule } from '@angular/router';
 import { TextInputComponent } from './text-input/text-input.component';
 import { FormsModule } from '@angular/forms';
+import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 
 @NgModule({
-  declarations: [NavComponent, TextInputComponent],
+  declarations: [NavComponent, TextInputComponent, DynamicFormComponent],
   imports: [CommonModule, RouterModule, FormsModule],
-  exports: [NavComponent, TextInputComponent],
+  exports: [NavComponent, TextInputComponent, DynamicFormComponent],
 })
 export class SharedModule {}
