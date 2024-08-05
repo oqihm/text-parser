@@ -3,12 +3,7 @@ export interface Field {
     dataType: DataType; // Or use 'number' if it's always 'number'
     list: ListItem[];
     mandatory: boolean;
-
-  }
-  
-  export interface Category {
-    type: CategoryType; // 'category'
-    fields: Field[];
+    hidden: boolean;
   }
 
   export interface ListItem {

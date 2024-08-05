@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { OverlayService } from '../services/overlay.service';
 import { MessageService } from '../services/parse.service';
-import { Category } from '../model/models';
+import { Configuration } from '../model/models';
 
 @Component({
   selector: 'text-parser',
@@ -10,7 +10,7 @@ import { Category } from '../model/models';
 })
 export class TextParserComponent {
   receivedText: string = '';
-  output: Category | undefined;
+  output: Configuration | undefined;
 
   constructor(private overlayService: OverlayService, private messageService: MessageService) {}
 
