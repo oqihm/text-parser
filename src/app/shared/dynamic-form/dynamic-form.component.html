@@ -30,7 +30,7 @@
         value="">
           Please select an option
         </option>
-        <option *ngFor="let item of field.list" [value]="item.value">{{ item.name }}</option>
+        <option *ngFor="let item of field.list" [value]="item.value" [selected]="item.value === field.value">{{ item.name }}</option>
       </select>
 
       <!-- Add a horizontal line for better separation -->

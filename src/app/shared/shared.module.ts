@@ -10,6 +10,6 @@ import { PopupMessageComponent } from './popup-message/popup-message.component';
 @NgModule({
   declarations: [NavComponent, TextInputComponent, DynamicFormComponent, PopupMessageComponent],
   imports: [CommonModule, RouterModule, FormsModule],
-  exports: [NavComponent, TextInputComponent, DynamicFormComponent],
+  exports: [NavComponent, TextInputComponent],
 })
 export class SharedModule {}
