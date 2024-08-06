@@ -1,7 +1,7 @@
 <div class="dynamic-form-container">
   <form class="dynamic-form">
     <div *ngFor="let field of fields" class="form-group">
-      <label [for]="field.name">{{ field.displayText }}</label>
+      <label [for]="field.name">{{ field.displayText || field.name | camelCaseToNormal }}</label>
       
       <!-- Text Input -->
       <input *ngIf="field.dataType === dataType.Text" 
