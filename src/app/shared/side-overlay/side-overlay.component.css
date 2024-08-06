@@ -17,6 +17,7 @@
   height: 100%;
   padding: 16px;
   position: relative; /* Ensure positioning context for the close button */
+  top: 20px;
 }
 
 .close-button {

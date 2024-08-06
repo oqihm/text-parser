@@ -3,6 +3,7 @@ import { OverlayService } from '../services/overlay.service';
 import { MessageService } from '../services/parse.service';
 import { Configuration, Field } from '../model/models';
 import { DynamicFormComponent } from '../shared/dynamic-form/dynamic-form.component';
+import { PopupService } from '../services/popup.service';
 
 @Component({
   selector: 'text-parser',
@@ -13,11 +14,13 @@ export class TextParserComponent {
   receivedText: string = '';
   output: Configuration | undefined;
 
-  constructor(private overlayService: OverlayService, private messageService: MessageService) {}
+  constructor(private overlayService: OverlayService, private messageService: MessageService, private popupService: PopupService) {}
 
   onTextSubmit(text: string): void {
     this.receivedText = text;
-    // this.showOverlay();
+    if (!this.receivedText) {
+      return;
+    }
     this.sendMessage();
   }
 
@@ -33,6 +36,7 @@ export class TextParserComponent {
         this.showOverlay(this.output.categories[0].fields);
       },
       error => {
+        this.popupService.open('Invalid Configuration');
         console.error('Error sending message', error);
       }
     );

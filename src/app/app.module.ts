@@ -12,6 +12,7 @@ import { AboutComponent } from './about/about.component';
 import { OverlayService } from './services/overlay.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SideOverlayComponent } from './shared/side-overlay/side-overlay.component';
+import { PopupService } from './services/popup.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { SideOverlayComponent } from './shared/side-overlay/side-overlay.compone
     FormsModule,
     HttpClientModule
   ],
-  providers: [NavigationService, OverlayService],
+  providers: [NavigationService, OverlayService, PopupService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
