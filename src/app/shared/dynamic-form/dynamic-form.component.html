@@ -1,13 +1,14 @@
 <div class="dynamic-form-container">
   <form class="dynamic-form">
     <div *ngFor="let field of fields" class="form-group">
-      <label [for]="field.name">{{ field.name }}</label>
+      <label [for]="field.name">{{ field.displayText }}</label>
       
       <!-- Text Input -->
       <input *ngIf="field.dataType === dataType.Text" 
              [id]="field.name" 
              [attr.required]="field.mandatory ? true : null" 
              type="text" 
+             [value]="field.value"
              class="form-control" />
 
       <!-- Number Input -->
@@ -15,6 +16,7 @@
              [id]="field.name" 
              [attr.required]="field.mandatory ? true : null" 
              type="number" 
+             [value]="field.value"
              class="form-control" />
 
       <!-- Dropdown Input -->
@@ -22,6 +24,8 @@
               [id]="field.name" 
               [attr.required]="field.mandatory ? true : null" 
               class="form-control">
+        <!-- Placeholder Option -->
+        <option value="" disabled selected>Please select an option</option>
         <option *ngFor="let item of field.list" [value]="item.value">{{ item.name }}</option>
       </select>
 

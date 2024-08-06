@@ -1,9 +1,11 @@
 export interface Field {
     name: string;
+    displayText: string;
     dataType: DataType; // Or use 'number' if it's always 'number'
     list: ListItem[];
     mandatory: boolean;
     hidden: boolean;
+    value: string;
   }
 
   export interface ListItem {
