@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Field, DataType } from '../../model/models';
 
 @Component({
@@ -7,11 +7,16 @@ import { Field, DataType } from '../../model/models';
   styleUrls: ['./dynamic-form.component.css']
 })
 export class DynamicFormComponent implements OnInit{
+  @Output() cancel = new EventEmitter<void>(); // Emit close event
   @Input() fields: Field[] = [];
 
   dataType = DataType; // To access enum in template
 
   ngOnInit(): void {
     
+  }
+
+  close(): void {
+    this.cancel.emit();
   }
 }

@@ -8,7 +8,7 @@
              [id]="field.name" 
              [attr.required]="field.mandatory ? true : null" 
              type="text" 
-             [value]="field.value"
+             [value]="field.value !== undefined ? field.value : ''"
              class="form-control" />
 
       <!-- Number Input -->
@@ -16,7 +16,7 @@
              [id]="field.name" 
              [attr.required]="field.mandatory ? true : null" 
              type="number" 
-             [value]="field.value"
+             [value]="field.value !== undefined ? field.value : ''"
              class="form-control" />
 
       <!-- Dropdown Input -->
@@ -25,7 +25,11 @@
               [attr.required]="field.mandatory ? true : null" 
               class="form-control">
         <!-- Placeholder Option -->
-        <option value="" disabled selected>Please select an option</option>
+        <option [attr.disabled]="!field.mandatory ? null : true"
+        [attr.selected]="!field.mandatory ? true : null"
+        value="">
+          Please select an option
+        </option>
         <option *ngFor="let item of field.list" [value]="item.value">{{ item.name }}</option>
       </select>
 
@@ -37,5 +41,10 @@
       <button type="button" (click)="close()" class="btn btn-secondary">Cancel</button>
       <button type="submit" class="btn btn-primary">Submit</button>
     </div> -->
+
+    <div class="form-actions">
+      <button type="button" (click)="close()" class="btn btn-primary">Cancel</button>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
   </form>
 </div>
