@@ -1,4 +1,9 @@
-<div *ngIf="fileContent">
-    <pre>{{ fileContent }}</pre>
+<div class="card-container">
+  <div *ngFor="let item of files" class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{ item.title }}</h5>
+      <button (click)="copyToClipboard(item.content)" class="btn btn-primary">Copy</button>
+      <p class="card-text">{{ item.content }}</p>
+    </div>
   </div>
-  
+</div>

@@ -22,9 +22,16 @@ export class SideOverlayComponent {
         Object.assign(factory.instance, this.componentData);
       }
 
-    // Subscribe to the dynamic component's close event
-    if (factory.instance['cancel']) {
-        factory.instance['cancel'].subscribe(() => {
+      // Subscribe to the dynamic component's close event
+      if (factory.instance['cancel']) {
+          factory.instance['cancel'].subscribe(() => {
+          this.close();
+        });
+      }
+
+      // Subscribe to the dynamic component's close event
+      if (factory.instance['save']) {
+        factory.instance['save'].subscribe(() => {
         this.close();
       });
     }

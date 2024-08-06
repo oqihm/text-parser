@@ -33,7 +33,12 @@ export class TextParserComponent {
       response => {
         console.log('Message sent successfully', response);
         this.output = response;
-        this.showOverlay(this.output.categories[0].fields);
+        if(this.output.categories[0].fields === undefined) {
+          // this.popupService.open('No fields found');
+        }
+        else {
+          this.showOverlay(this.output.categories[0].fields);
+        }
       },
       error => {
         this.popupService.open('Invalid Configuration');

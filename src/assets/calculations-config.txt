@@ -1,0 +1,6 @@
+category Calculations
+  Calculation "calc1"
+  Value "100"
+  Calculation "calc2"
+  Value "200"
+endcategory
